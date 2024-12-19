@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  min-height: var(--tg-viewport-height);
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(162.45deg, #000000 31.58%, #B5A5DD 274.81%);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
+.loading {
+  position: absolute;
+  top: 305px;
+  left: calc(50% - 45px);
+  width: 80px;
+  height: 80px;
+  background-image: url('./assets/load.gif');
+  background-size: contain;
+  background-position: center;
+}

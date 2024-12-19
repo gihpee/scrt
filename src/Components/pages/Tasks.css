@@ -1,0 +1,89 @@
+.column {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    z-index: 50;
+}
+  
+.task-list {
+    display: grid;
+    width: calc(100% - 24px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+    padding: 12px;
+}
+  
+.task-card {
+    background: linear-gradient(0deg, rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0.3)), linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    color: #fff;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration: none;
+    border-radius: 16px;
+}
+  
+.task-card:hover {
+    background: #444;
+}
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    width: calc(100% - 24px);
+}
+
+.top2-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: calc(100%);
+}
+
+.settings-btn {
+    height: 40px;
+    line-height: 40px;
+    flex: auto;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    background: linear-gradient(0deg, rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0.3)), linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+    border: 1px solid rgba(57, 57, 57, 1);
+    border-radius: 16px;
+    font-size: 17px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 46px;
+    text-align: center;
+}
+
+.user-info span {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    color: rgba(120, 120, 120, 1);
+}
+
+.user-info h1 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    color: #fff;
+}
+  
