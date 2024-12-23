@@ -115,9 +115,9 @@ const TaskDetail = () => {
       </div>
 
       <div className='hints'>
-        <div className='hint' onClick={() => handleUseHint(1)}>{hint1 ? hint1 : -task?.hint1_price}</div>
-        <div className='hint' onClick={() => handleUseHint(2)}>{hint2 ? hint2 : -task?.hint2_price}</div>
-        <div className='hint' onClick={() => handleUseHint(3)}>{hint3 ? hint3 : -task?.hint3_price}</div>
+        <div className='hint' onClick={handleUseHint(1)}>{hint1 ? hint1 : -task?.hint1_price}</div>
+        <div className='hint' onClick={handleUseHint(2)}>{hint2 ? hint2 : -task?.hint2_price}</div>
+        <div className='hint' onClick={handleUseHint(3)}>{hint3 ? hint3 : -task?.hint3_price}</div>
       </div>
 
       {answer && <MainButton text="send answer" onClick={() => handleAnswer()} />}
