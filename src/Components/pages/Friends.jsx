@@ -43,8 +43,8 @@ const Friends = () => {
       </div>
 
       <div className='invite-btns'>
-        <div className='invite-btn' style={{flex: '1'}}>invite a friend</div>
-        <div className='invite-btn'>􀉂</div>
+        <a href={`https://t.me/share/url?url=https://t.me/scrtestbot/SCRT?startapp=${id}&text=play`} className='invite-btn' style={{flex: '1'}}>invite a friend</a>
+        <div className='invite-btn' onClick={() => navigator.clipboard.writeText('lets play')}>􀉂</div>
       </div>
 
       <div className='list-box' style={{maxHeight: 'calc(100vh - 400px)'}}>
