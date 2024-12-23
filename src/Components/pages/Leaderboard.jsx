@@ -3,7 +3,7 @@ import './Leaderboard.css';
 
 const Leaderboard = () => {
   const { id } = window.Telegram.WebApp.initDataUnsafe.user;
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(null);
   const [quantity, setQuantity] = useState(null);
   const [place, setPlace] = useState(null);
 
@@ -32,7 +32,7 @@ const Leaderboard = () => {
         fetchData();
     }, [id]);
 
-  if (!users) {
+  if (users === null) {
     return <div className="loading"></div>;
   }
 
