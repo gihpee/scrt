@@ -49,7 +49,7 @@ const Leaderboard = () => {
       <div className='list-box'>
         {users?.map((user) => (
             <div key={user.id} className="list-item">
-                <img src={user.photo_url}></img>
+                <img src={`https://scrtest.ru${user.photo_url}`}></img>
                 <div className='item-info'>
                     <p>{user.nickname}</p>
                     <span>{user.puzzles} puzzles</span>

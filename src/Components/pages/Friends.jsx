@@ -50,7 +50,7 @@ const Friends = () => {
       <div className='list-box' style={{maxHeight: 'calc(100vh - 400px)'}}>
         {users?.map((user) => (
             <div className="list-item">
-                <img src={user.referral.photo_url}></img>
+                <img src={`https://scrtest.ru${user.referral.photo_url}`}></img>
                 <div className='item-info'>
                     <p>{user.referral.nickname}</p>
                     <span>{user.referral.puzzles} puzzles</span>

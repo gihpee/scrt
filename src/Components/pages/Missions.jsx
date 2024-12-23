@@ -84,7 +84,7 @@ const Missions = () => {
       <div className='list-box'>
         {switchValue === 'limited' && limitTasks?.map((task) => (
             <a href={task.channel.url} key={task.id} className="list-item" style={{width: 'auto'}}>
-                <img src={task.img}></img>
+                <img src={`https://scrtest.ru${task.img}`}></img>
                 <div className='item-info'>
                     <p>{task.title}</p>
                     <span>+ {task.reward}</span>
@@ -94,7 +94,7 @@ const Missions = () => {
         ))}
 
         {switchValue === 'in-game' && inGameTasks.map((task) => (
-            <div key={task.id} className="list-item">
+            <div key={task.id} className="list-item" style={{width: 'auto'}}>
                 <img src={task.icon}></img>
                 <div className='item-info'>
                     <p>{task.description}</p>
