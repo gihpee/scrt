@@ -51,6 +51,7 @@ const TaskDetail = () => {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
+              'Authorization': `tma ${window.Telegram.WebApp.initData}`
           },
           body: JSON.stringify({ tid, hintNum }),
       });
@@ -77,6 +78,7 @@ const TaskDetail = () => {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
+              'Authorization': `tma ${window.Telegram.WebApp.initData}`
           },
           body: JSON.stringify({ tid, answer }),
       });
