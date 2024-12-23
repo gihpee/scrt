@@ -1,19 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Tasks.css';
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState([{'id': 1, 'description': 'dis sdfisdf sid fisd hfi', 'award': 500}, {'id': 2, 'description': 'dis sdfisdf sid fisd hfi', 'award': 500}, {'id': 3, 'description': 'dis sdfisdf sid fisd hfi', 'award': 500}, {'id': 3, 'description': 'dis sdfisdf sid fisd hfi', 'award': 500}]);
+  const { id } = window.Telegram.WebApp.initDataUnsafe.user;
+  const [tasks, setTasks] = useState([]);
+  const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
 
-  /*useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/api/tasks');
-      const data = await response.json();
-      setTasks(data);
+      try {
+        const response = await fetch(`https://scrtest.ru/api/user-data/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `tma ${window.Telegram.WebApp.initData}`
+          },
+        });
+        const result = await response.json();
+
+        if (response.status === 201) {
+          navigate('/registration');
+        } else {
+          setTasks(result.tasks);
+          setUserData(result.user);
+        }
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
 
     fetchData();
-  }, []);*/
+  }, [id, navigate]);
 
   return (
     <div className='column'>
@@ -34,7 +55,7 @@ const Tasks = () => {
 
       <div className='user-info'>
         <span>level 1</span>
-        <h1>􀊽 100</h1>
+        <h1>􀊽 {userData?.balance}</h1>
       </div>
       
       <div className="task-list">

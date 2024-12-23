@@ -1,0 +1,19 @@
+.invite-btns {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: calc(100% - 24px);
+}
+
+.invite-btn {
+    height: 40px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-weight: 600;
+    background: linear-gradient(0deg, rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0.3)), linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+}
