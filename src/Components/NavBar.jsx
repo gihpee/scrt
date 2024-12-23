@@ -16,7 +16,7 @@ const NavBar = () => {
       <Link to="/friends" className={location.pathname === '/friends' ? 'active' : ''}>
         <i className="icon-friends"></i>
       </Link>
-      <Link to="/missions" className={location.pathname === '/tasks' ? 'active' : ''}>
+      <Link to="/missions" className={location.pathname === '/missions' ? 'active' : ''}>
         <i className="icon-tasks"></i>
       </Link>
     </nav>

@@ -3,7 +3,7 @@ import './Friends.css';
 
 const Friends = () => {
   const { id } = window.Telegram.WebApp.initDataUnsafe.user;
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
       const fetchData = async () => {
@@ -27,7 +27,7 @@ const Friends = () => {
       fetchData();
     }, [id]);
 
-  if (!users) {
+  if (users === null) {
     return <div className="loading"></div>;
   }
 
