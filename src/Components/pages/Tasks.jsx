@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useTonAddress } from '@tonconnect/ui-react';
+import { useTonConnectUI } from '@tonconnect/ui-react';
 import './Tasks.css';
 
 const Tasks = () => {
@@ -8,6 +10,11 @@ const Tasks = () => {
   const [tasks, setTasks] = useState([]);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+
+  const userFriendlyAddress = useTonAddress();
+  const [tonConnectUI, setOptions] = useTonConnectUI();
+
+  setOptions({ language: 'ru' });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,9 +51,9 @@ const Tasks = () => {
     <div className='column'>
 
       <div className='top-container'>
-        <div className='settings-btn'>
-          connect wallet
-        </div>
+        <button className='settings-btn' onClick={() => tonConnectUI.openModal()}>
+          {userFriendlyAddress ? userFriendlyAddress : 'connect wallet'}
+        </button>
         <div className='top2-container'>
           <div className='settings-btn'>
             􀬅 our community
