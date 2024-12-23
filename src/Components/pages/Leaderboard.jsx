@@ -32,6 +32,10 @@ const Leaderboard = () => {
         fetchData();
     }, [id]);
 
+  if (!users) {
+    return <div className="loading"></div>;
+  }
+
   return (
     <div className='column'>
 

@@ -36,6 +36,10 @@ const Tasks = () => {
     fetchData();
   }, [id, navigate]);
 
+  if (!userData) {
+    return <div className="loading"></div>;
+  }
+
   return (
     <div className='column'>
 

@@ -54,12 +54,16 @@ const Missions = () => {
       }
     }
 
+  if (!limitTasks) {
+    return <div className="loading"></div>;
+  }
+
   return (
     <div className='column'>
 
       <div className='main-top-container'>
         <div className='emoji'>🥶</div>
-        <h1>{limitTasks.length + inGameTasks.length} tasks</h1>
+        <h1>{limitTasks?.length + inGameTasks?.length} tasks</h1>
       </div>
 
       <div className="switcher">

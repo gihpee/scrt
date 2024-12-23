@@ -27,14 +27,18 @@ const Friends = () => {
       fetchData();
     }, [id]);
 
+  if (!users) {
+    return <div className="loading"></div>;
+  }
+
   return (
     <div className='column'>
 
       <div className='main-top-container'>
-        {users.length >= 100 ? <div className='emoji'>🥵</div> : users.length >= 10 ? <div className='emoji'>😱</div> : <div className='emoji'>🥶</div>}
-        <h1>{users.length} friends</h1>
-        {users.length >= 100 ? <span style={{color: 'rgba(142, 142, 147, 1)'}}>a friend in court is better than a penny in purse</span> 
-        : users.length >= 10 ? <span style={{color: 'rgba(142, 142, 147, 1)'}}>because he heard it was going to be a high-level social event!</span> 
+        {users?.length >= 100 ? <div className='emoji'>🥵</div> : users?.length >= 10 ? <div className='emoji'>😱</div> : <div className='emoji'>🥶</div>}
+        <h1>{users?.length} friends</h1>
+        {users?.length >= 100 ? <span style={{color: 'rgba(142, 142, 147, 1)'}}>a friend in court is better than a penny in purse</span> 
+        : users?.length >= 10 ? <span style={{color: 'rgba(142, 142, 147, 1)'}}>because he heard it was going to be a high-level social event!</span> 
         : <span style={{color: 'rgba(142, 142, 147, 1)'}}>why does he never need GPS? His friends are everywhere!</span>}
       </div>
 
