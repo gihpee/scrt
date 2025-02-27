@@ -7,13 +7,11 @@ import './Tasks.css';
 
 const Tasks = () => {
   const { id } = window.Telegram.WebApp.initDataUnsafe.user;
-  //const { id } = 478969308;
   const [tasks, setTasks] = useState([]);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [popupMessage, setPopupMessage] = useState(null);
   const navigate = useNavigate();
-
-  console.log(window.Telegram.WebApp.initData)
 
   const userFriendlyAddress = useTonAddress();
   const [tonConnectUI, setOptions] = useTonConnectUI();
@@ -47,6 +45,40 @@ const Tasks = () => {
     fetchData();
   }, [id, navigate]);
 
+  const handleWithdraw = async () => {
+    setIsSettingsOpen(false);
+    
+    if (!userFriendlyAddress) {
+      setPopupMessage("Please connect your wallet first");
+      return;
+    }
+    
+    if (userData.balance === 0) {
+      setPopupMessage("Balance must be greater than 0");
+      return;
+    }
+    
+    try {
+      const response = await fetch(`https://scrtest.ru/api/withdraw`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `tma ${window.Telegram.WebApp.initData}`
+        },
+        body: JSON.stringify({ address: userFriendlyAddress })
+      });
+      
+      if (response.status === 200) {
+        setPopupMessage("Funds successfully withdrawn");
+        setUserData(prev => ({ ...prev, balance: 0 }));
+      } else {
+        setPopupMessage("An error occurred");
+      }
+    } catch (error) {
+      setPopupMessage("An error occurred");
+    }
+  };
+
   if (!userData) {
     return <div className="loading"></div>;
   }
@@ -62,7 +94,7 @@ const Tasks = () => {
           <div className='settings-btn'>
             􀬅 our community
           </div>
-          <div className='settings-btn'>
+          <div className='settings-btn' onClick={() => setIsSettingsOpen(!isSettingsOpen)}>
             􀣌 settings
           </div>
         </div>
@@ -81,13 +113,20 @@ const Tasks = () => {
         ))}
       </div>
 
-      {isSettingsOpen && (
-        <div className="settings-popup">
+        <div className={`settings-popup ${isSettingsOpen ? 'open' : ''}`}>
           <div className="settings-content">
+            <div className='popup-name'>settings</div>
             <button className="close-btn" onClick={() => setIsSettingsOpen(false)}>×</button>
-            <div className="settings-option">Английский / Русский</div>
-            <div className="settings-option">Withdraw</div>
-            <div className="settings-option">Earned history</div>
+            <div className="settings-option" style={{marginTop: '40px'}} onClick={handleWithdraw}>􀁷 Withdraw</div>
+            <div className="settings-option">􁆽 Earned history</div>
+          </div>
+        </div>
+
+        {popupMessage && (
+        <div className="popup-overlay">
+          <div className="popup-message">
+            <p>{popupMessage}</p>
+            <button className="popup-btn" onClick={() => setPopupMessage(null)}>ОК</button>
           </div>
         </div>
       )}
