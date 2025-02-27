@@ -99,7 +99,7 @@ const TaskDetail = () => {
 
   return (
     <div className='column'>
-      <button className="back-button" onClick={() => window.history.back()}>{'<'}</button>
+      <button className="back-button" onClick={() => window.history.back()}>ᐸ</button>
       <div className="task-details">
         <div className='task-details__info'>
           <p>{task?.description}</p>
