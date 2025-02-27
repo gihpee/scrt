@@ -7,9 +7,13 @@ import './Tasks.css';
 
 const Tasks = () => {
   const { id } = window.Telegram.WebApp.initDataUnsafe.user;
+  //const { id } = 478969308;
   const [tasks, setTasks] = useState([]);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+
+  console.log(window.Telegram.WebApp.initData)
 
   const userFriendlyAddress = useTonAddress();
   const [tonConnectUI, setOptions] = useTonConnectUI();
@@ -76,6 +80,18 @@ const Tasks = () => {
           </Link>
         ))}
       </div>
+
+      {isSettingsOpen && (
+        <div className="settings-popup">
+          <div className="settings-content">
+            <button className="close-btn" onClick={() => setIsSettingsOpen(false)}>×</button>
+            <div className="settings-option">Английский / Русский</div>
+            <div className="settings-option">Withdraw</div>
+            <div className="settings-option">Earned history</div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
