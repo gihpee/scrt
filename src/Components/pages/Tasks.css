@@ -55,6 +55,9 @@
     flex: auto;
     outline: none;
     text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     align-items: center;
     vertical-align: middle;
     background: linear-gradient(0deg, rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0.3)), linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
