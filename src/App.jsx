@@ -28,7 +28,7 @@ function App() {
             <Route path="friends" element={<Friends />} />
             <Route path="missions" element={<Missions />} />
           </Routes>
-          {location.pathname !== "/registration" && <NavBar />}
+          {!location.pathname.includes("/task/") && location.pathname !== "/registration" && <NavBar />}
       </div>
     </TonConnectUIProvider>
   );
