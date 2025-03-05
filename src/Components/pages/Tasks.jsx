@@ -60,7 +60,7 @@ const Tasks = () => {
     }
     
     try {
-      const response = await fetch(`https://scrtest.ru/api/withdraw`, {
+      const response = await fetch(`https://scrtest.ru/api/withdraw/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
