@@ -85,7 +85,7 @@ const Tasks = () => {
   }
 
   return (
-    <div className='column'>
+    <div className='column' style={{height: '100vh'}}>
 
       <div className='top-container'>
         <button className='settings-btn' onClick={() => tonConnectUI.openModal()}>
@@ -109,7 +109,7 @@ const Tasks = () => {
       <div className="task-list">
         {tasks.map((task) => (
           <Link to={`/task/${task.id}`} key={task.id} className="task-card">
-            <div className="task-card-title">{task.award}</div>
+            <div className="task-card-title">{task.award / 1000}k</div>
           </Link>
         ))}
       </div>

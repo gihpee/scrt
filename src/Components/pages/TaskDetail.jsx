@@ -103,7 +103,7 @@ const TaskDetail = () => {
       <div className="task-details">
         <div className='task-details__info'>
           <p>{task?.description}</p>
-          <span>reward {task?.award}</span>
+          <span>reward {task?.award / 1000}k</span>
         </div>
         <div className="field">
           <input
