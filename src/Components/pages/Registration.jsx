@@ -14,16 +14,29 @@ function Registration() {
     };
 
     const handleSave = async () => {
-        fetch('https://scrtest.ru/api/register-user/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `tma ${window.Telegram.WebApp.initData}`
-          },
+        try {
+            const response = await fetch('https://scrtest.ru/api/register-user/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `tma ${window.Telegram.WebApp.initData}`
+                },
+                body: JSON.stringify({ nickname }),
+            });
     
-          body: JSON.stringify({nickname}),
-        }).then(navigate(`/`))
-    }
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Error:', errorData);
+                return;
+            }
+    
+            navigate('/');
+    
+        } catch (error) {
+            console.error('Error saving nickname:', error);
+        }
+    };
+    
 
     return <div className="column">
         <div className="sub-column">
