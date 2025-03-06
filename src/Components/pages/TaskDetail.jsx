@@ -97,6 +97,10 @@ const TaskDetail = () => {
     }
   }
 
+  if (!task) {
+    return <div className="loading"></div>;
+  }
+
   return (
     <div className='column'>
       <button className="back-button" onClick={() => window.history.back()}>ᐸ</button>
