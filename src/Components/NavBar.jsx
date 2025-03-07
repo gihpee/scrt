@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 import './NavBar.css';
 
 const NavBar = () => {
   const location = useLocation();
 
-  const handleHomeClick = () => {
+  const handleHomeClick = (event) => {
     if (location.pathname === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      console.log(1)
+      event.preventDefault();
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 50);
     }
   };
 
