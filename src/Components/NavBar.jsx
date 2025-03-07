@@ -7,11 +7,11 @@ const NavBar = () => {
 
   const handleHomeClick = (event) => {
     if (location.pathname === "/") {
-      console.log(1)
       event.preventDefault();
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 50);
+      const scrollableDiv = document.querySelector('.column');
+      if (scrollableDiv) {
+        scrollableDiv.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   };
 

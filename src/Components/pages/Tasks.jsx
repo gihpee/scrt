@@ -6,8 +6,8 @@ import { useTonConnectUI } from '@tonconnect/ui-react';
 import './Tasks.css';
 
 const Tasks = () => {
-  //const { id } = window.Telegram.WebApp.initDataUnsafe.user;
-  const { id } = 478969308;
+  const { id } = window.Telegram.WebApp.initDataUnsafe.user;
+  //const { id } = 478969308;
   const [tasks, setTasks] = useState([]);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -26,7 +26,7 @@ const Tasks = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `tma query_id=AAHcfYwcAAAAANx9jBz7bSbL&user=%7B%22id%22%3A478969308%2C%22first_name%22%3A%22Gregory%22%2C%22last_name%22%3A%22Morychev%22%2C%22username%22%3A%22gmorychev%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F9LSwsTv0sqnzQrZItNumpwxmL8PCNYsScvuZ9hvW6uM.svg%22%7D&auth_date=1741358395&signature=5eGeoVm6Ibc5hD7BuzvIL0jmbnIhbQG-MTf7NALw2wpjfHmvLwFUBnzSL6MS3R7sllHwq8zKj-QEc0aD2L3LCQ&hash=30140d9d255b166ccf5d65371258ecf6ea625e5e36def0e3aa18e0a5f92673bc`
+            'Authorization': `tma ${window.Telegram.WebApp.initData}`
           },
         });
         const result = await response.json();
@@ -88,7 +88,7 @@ const Tasks = () => {
     <div className='column' style={{height: '100vh', overflowY: 'auto'}}>
 
       <div className='top-container'>
-        <button className='settings-btn' onClick={() => tonConnectUI.openModal()}>
+        <button className='settings-btn' onClick={() => {if (!userFriendlyAddress) {tonConnectUI.openModal();}}}>
           {userFriendlyAddress ? userFriendlyAddress : 'connect wallet'}
         </button>
         <div className='top2-container'>
@@ -119,7 +119,7 @@ const Tasks = () => {
             <div className='popup-name'>settings</div>
             <button className="close-btn" onClick={() => setIsSettingsOpen(false)}>×</button>
             <div className="settings-option" style={{marginTop: '40px'}} onClick={handleWithdraw}>􀁷 Withdraw</div>
-            <div className="settings-option">􁆽 Earned history</div>
+            {userFriendlyAddress && <div className="settings-option" onClick={() => tonConnectUI.disconnect()}>Disconnect wallet</div>}
           </div>
         </div>
 
