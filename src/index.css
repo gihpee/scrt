@@ -2,7 +2,7 @@
   font-family: "SF Pro";  
   src: url("assets/fonts/SF-Pro.ttf") format("truetype"); 
   font-style: normal; 
-  font-weight: normal;
+  font-weight: 500;
 }
 
 :root {

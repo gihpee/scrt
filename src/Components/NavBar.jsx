@@ -5,9 +5,15 @@ import './NavBar.css';
 const NavBar = () => {
   const location = useLocation();
 
+  const handleHomeClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="nav-bar">
-      <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+      <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={handleHomeClick}>
         <i className="icon-home"></i>
       </Link>
       <Link to="/leaderboard" className={location.pathname === '/leaderboard' ? 'active' : ''}>

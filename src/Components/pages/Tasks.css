@@ -7,8 +7,6 @@
 }
   
 .task-list {
-    flex-grow: 1;
-    overflow-y: auto;
     display: grid;
     width: calc(100% - 24px);
     grid-template-columns: repeat(3, 1fr);
@@ -36,7 +34,6 @@
 }
 
 .top-container {
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -73,7 +70,6 @@
 }
 
 .user-info {
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
