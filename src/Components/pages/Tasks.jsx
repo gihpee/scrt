@@ -88,7 +88,7 @@ const Tasks = () => {
     <div className='column' style={{height: '100vh', overflowY: 'auto'}}>
 
       <div className='top-container'>
-        <button className='settings-btn' onClick={() => {if (!userFriendlyAddress) {tonConnectUI.openModal();}}}>
+        <button className='settings-btn' onClick={() => {if (!userFriendlyAddress) {tonConnectUI.openModal();}}} style={{fontWeight: '600'}}>
           {userFriendlyAddress ? userFriendlyAddress : 'connect wallet'}
         </button>
         <div className='top2-container'>
