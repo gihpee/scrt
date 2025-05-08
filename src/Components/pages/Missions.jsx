@@ -78,7 +78,7 @@ const Missions = () => {
           className={`switcher-button ${switchValue === "in-game" ? "active" : ""}`}
           onClick={() => setSwitchValue("in-game")}
         >
-          In-gamq
+          In-gamn
         </button>
       </div>
 
