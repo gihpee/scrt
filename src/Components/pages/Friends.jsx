@@ -8,7 +8,7 @@ const Friends = () => {
   useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch(`https://scrtest.ru/api/user-data/`, {
+          const response = await fetch(`https://hsebcmail.ru/api/user-data/`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const Friends = () => {
       <div className='list-box' style={{maxHeight: 'calc(100vh - 400px)'}}>
         {users?.map((user) => (
             <div className="list-item">
-                <img src={`https://scrtest.ru${user.referral.photo_url}`}></img>
+                <img src={`https://hsebcmail.ru${user.referral.photo_url}`}></img>
                 <div className='item-info'>
                     <p>{user.referral.nickname}</p>
                     <span>{user.referral.puzzles} puzzles</span>

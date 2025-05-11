@@ -22,7 +22,7 @@ const Tasks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://scrtest.ru/api/user-data/`, {
+        const response = await fetch(`https://hsebcmail.ru/api/user-data/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const Tasks = () => {
     }
     
     try {
-      const response = await fetch(`https://scrtest.ru/api/withdraw/`, {
+      const response = await fetch(`https://hsebcmail.ru/api/withdraw/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

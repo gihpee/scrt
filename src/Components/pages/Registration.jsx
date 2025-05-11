@@ -15,7 +15,7 @@ function Registration() {
 
     const handleSave = async () => {
         try {
-            const response = await fetch('https://scrtest.ru/api/register-user/', {
+            const response = await fetch('https://hsebcmail.ru/api/register-user/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

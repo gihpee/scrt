@@ -16,7 +16,7 @@ const TaskDetail = () => {
       const fetchData = async () => {
         try {
           let tid = id;
-          const response = await fetch(`https://scrtest.ru/api/get-full-task/`, {
+          const response = await fetch(`https://hsebcmail.ru/api/get-full-task/`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const TaskDetail = () => {
   const handleUseHint = (hintNum) => async () => {
     try {
       let tid = id;
-      const response = await fetch(`https://scrtest.ru/api/get-hint/`, {
+      const response = await fetch(`https://hsebcmail.ru/api/get-hint/`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const TaskDetail = () => {
   const handleAnswer = async () => {
     try {
       let tid = id;
-      const response = await fetch(`https://scrtest.ru/api/send-answer/`, {
+      const response = await fetch(`https://hsebcmail.ru/api/send-answer/`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

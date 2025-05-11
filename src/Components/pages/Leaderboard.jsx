@@ -11,7 +11,7 @@ const Leaderboard = () => {
   useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`https://scrtest.ru/api/get-rating/`, {
+            const response = await fetch(`https://hsebcmail.ru/api/get-rating/`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const Leaderboard = () => {
       <div className='list-box'>
         {users?.map((user) => (
             <div key={user.id} className="list-item">
-                <img src={`https://scrtest.ru${user.photo_url}`}></img>
+                <img src={`https://hsebcmail.ru${user.photo_url}`}></img>
                 <div className='item-info'>
                     <p>{user.nickname}</p>
                     <span>{user.puzzles} puzzles</span>

@@ -12,7 +12,7 @@ const Missions = () => {
   useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`https://scrtest.ru/api/get-missions/`, {
+            const response = await fetch(`https://hsebcmail.ru/api/get-missions/`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const Missions = () => {
 
   const handleCheckTask = (missionId) => async () => {
       try {
-        const response = await fetch(`https://scrtest.ru/api/check-mission/`, {
+        const response = await fetch(`https://hsebcmail.ru/api/check-mission/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ const Missions = () => {
       <div className='list-box'>
         {switchValue === 'limited' && limitTasks?.map((task) => (
             <a href={task.channel.url} key={task.id} className="list-item" style={{width: 'auto'}}>
-                <img src={`https://scrtest.ru${task.img}`}></img>
+                <img src={`https://hsebcmail.ru${task.img}`}></img>
                 <div className='item-info'>
                     <p>{task.title}</p>
                     <span>+ {task.reward}</span>
